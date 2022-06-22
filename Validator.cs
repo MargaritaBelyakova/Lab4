@@ -17,7 +17,14 @@ namespace Lab4
         }
         public bool ValidateChecksum()
         {
-            return true;
+            if (snils > 00100199800)
+            {
+                return true;
+            }                
+            else
+            {
+                return false;
+            }
         }
     }
 }

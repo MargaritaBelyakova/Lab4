@@ -27,8 +27,9 @@ namespace UnitTest
         [TestMethod]
         public void ValidateChecksumTest()
         {
-            bool actual = validator.ValidateChecksum();
-            Assert.AreEqual(true, actual);
+            Validator validatorTest = new Validator(00000000001);
+            bool actual = validatorTest.ValidateChecksum();
+            Assert.AreEqual(false, actual);
         }
     }
 }
