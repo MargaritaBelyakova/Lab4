@@ -8,6 +8,13 @@ namespace Lab4
 {
     public class Validator
     {
-        public string snils = "12345";
+        private readonly long snils;
+        public long Snils { get { return snils; } }
+
+        public Validator(long snils)
+        {
+            this.snils = snils;
+        }
+        
     }
 }

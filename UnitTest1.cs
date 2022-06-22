@@ -7,19 +7,21 @@ namespace UnitTest
     [TestClass]
     public class ValidatorTest
     {
-        [TestMethod]
+
+        Validator validator;
+
+        [TestInitialize]
         public void ValidatorCreateTest()
         {
-            Validator validator = new Validator();
+            validator = new Validator(12345678901);
             Assert.IsNotNull(validator);
         }
 
         [TestMethod]
         public void ReturnSnilsTest()
         {
-            var validator = new Validator();
-            string expected = "12345";
-            Assert.AreEqual(expected, validator.snils);
+            long expected = 12345678901;
+            Assert.AreEqual(expected, validator.Snils);
         }
     }
 }
