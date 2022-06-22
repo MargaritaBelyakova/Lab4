@@ -40,15 +40,16 @@ namespace Lab4
         public static bool ValidateDigits(string snils)
         {
             for (int i = 0; i < snils.Length; i++)
-            {
                 if (!char.IsDigit(snils[i]))
                     return false;
-            }
             return true;
         }
 
-        public bool NumbersInRow()
+        public bool NumbersInRow(string snils)
         {
+            for (int i = 0; i < snils.Length - 2; i++)
+                if (snils[i] == snils[i + 1] && snils[i] == snils[i + 2])
+                    return false;
             return true;
         }
 
