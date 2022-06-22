@@ -15,6 +15,9 @@ namespace Lab4
         {
             this.snils = snils;
         }
-        
+        public bool ValidateChecksum()
+        {
+            return true;
+        }
     }
 }

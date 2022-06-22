@@ -23,5 +23,12 @@ namespace UnitTest
             long expected = 12345678901;
             Assert.AreEqual(expected, validator.Snils);
         }
+
+        [TestMethod]
+        public void ValidateChecksumTest()
+        {
+            bool actual = validator.ValidateChecksum();
+            Assert.AreEqual(true, actual);
+        }
     }
 }
