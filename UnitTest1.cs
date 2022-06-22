@@ -1,15 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Lab4;
 using System;
 
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class ValidatorTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ValidatorCreateTest()
         {
-
+            Validator validator = new Validator();
+            Assert.IsNotNull(validator);
         }
     }
 }
