@@ -8,6 +8,6 @@ namespace Lab4
 {
     public class Validator
     {
-
+        public string snils = "12345";
     }
 }

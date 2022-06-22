@@ -13,5 +13,13 @@ namespace UnitTest
             Validator validator = new Validator();
             Assert.IsNotNull(validator);
         }
+
+        [TestMethod]
+        public void ReturnSnilsTest()
+        {
+            var validator = new Validator();
+            string expected = "12345";
+            Assert.AreEqual(expected, validator.snils);
+        }
     }
 }
