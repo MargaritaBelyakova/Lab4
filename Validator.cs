@@ -31,14 +31,18 @@ namespace Lab4
         {            
             if (ConvertSnils() > 00100199800)
             {
-                int checksum = 0;
-                for (int i = snils.Length; i > snils.Length-2; i--)
-                {
-                    checksum *= i * 10;
-                    checksum += snils[i];
-                }
+                int checksum = (int)ConvertSnils()%100;
                 int calculatedChecksum = 0;
-                return true;
+                int numbers = snils.Length - 2;
+                for (int i = 0; i < numbers; i++)
+                {
+                    calculatedChecksum += snils[i] * (numbers - i);
+                }
+                if (calculatedChecksum < 100 && calculatedChecksum == checksum)
+                {
+                    return true;
+                }
+                return false;
             }                
             else
             {

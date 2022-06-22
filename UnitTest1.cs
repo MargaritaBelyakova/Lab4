@@ -31,11 +31,12 @@ namespace UnitTest
             bool actual = validatorTest.ValidateChecksum();
             Assert.AreEqual(false, actual);
         }
+        [TestMethod]
         public void ValidateChecksumSumLess100Test()
         {
-            Validator validatorTest = new Validator("123");
+            Validator validatorTest = new Validator("00100199864");
             bool actual = validatorTest.ValidateChecksum();
-            Assert.AreEqual(false, actual);
+            Assert.AreEqual(true, actual);
         }
     }
 }
