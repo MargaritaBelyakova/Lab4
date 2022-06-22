@@ -56,7 +56,7 @@ namespace UnitTest
         [TestMethod]
         public void ValidateNumbersCountTest()
         {
-            bool actual = Validator.ValidateNumbersCount("123");
+            bool actual = Validator.ValidateNumbersCount("12345678964");
             Assert.AreEqual(true, actual);
         }
     }

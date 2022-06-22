@@ -28,7 +28,13 @@ namespace Lab4
 
         public static bool ValidateNumbersCount(string snils)
         {
-            return true;
+            int count = 0;
+            for (int i = 0; i < snils.Length; i++)
+                count++;
+            if (count == 11)
+                return true;
+            else
+                return false;
         }
 
         public bool ValidateChecksum()
