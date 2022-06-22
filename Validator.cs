@@ -31,7 +31,7 @@ namespace Lab4
         {            
             if (ConvertSnils() > 00100199800)
             {
-                int checksum = (int)ConvertSnils()%100;
+                long checksum = ConvertSnils()%100;
                 if (checksum < 0)
                     checksum = 0;
                 int calculatedChecksum = 0;
@@ -44,7 +44,11 @@ namespace Lab4
                 {
                     return true;
                 }
-                if (calculatedChecksum == 100 && checksum == 0)
+                if ((calculatedChecksum == 100 || calculatedChecksum == 101) && checksum == 0)
+                {
+                    return true;
+                }
+                if (calculatedChecksum > 101 && calculatedChecksum%101 == checksum)
                 {
                     return true;
                 }
@@ -52,7 +56,7 @@ namespace Lab4
             }                
             else
             {
-                return false;
+                return true;
             }
         }
     }
