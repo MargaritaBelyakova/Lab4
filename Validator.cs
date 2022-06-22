@@ -32,6 +32,8 @@ namespace Lab4
             if (ConvertSnils() > 00100199800)
             {
                 int checksum = (int)ConvertSnils()%100;
+                if (checksum < 0)
+                    checksum = 0;
                 int calculatedChecksum = 0;
                 int numbers = snils.Length - 2;
                 for (int i = 0; i < numbers; i++)
@@ -39,6 +41,10 @@ namespace Lab4
                     calculatedChecksum += snils[i] * (numbers - i);
                 }
                 if (calculatedChecksum < 100 && calculatedChecksum == checksum)
+                {
+                    return true;
+                }
+                if (calculatedChecksum == 100 && checksum == 0)
                 {
                     return true;
                 }

@@ -38,5 +38,12 @@ namespace UnitTest
             bool actual = validatorTest.ValidateChecksum();
             Assert.AreEqual(true, actual);
         }
+        [TestMethod]
+        public void ValidateChecksumSumEquals100Test()
+        {
+            Validator validatorTest = new Validator("12346000000");
+            bool actual = validatorTest.ValidateChecksum();
+            Assert.AreEqual(true, actual);
+        }
     }
 }
