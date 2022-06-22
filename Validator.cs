@@ -37,6 +37,11 @@ namespace Lab4
                 return false;
         }
 
+        public static bool ValidateDigits(string snils)
+        {
+
+        }
+
         public bool ValidateChecksum()
         {            
             if (ConvertSnils() > 00100199800)
