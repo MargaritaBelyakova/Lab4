@@ -8,48 +8,38 @@ namespace UnitTest
     public class ValidatorTest
     {
 
-        Validator validator;
-
-        [TestInitialize]
-        public void ValidatorCreateTest()
-        {
-            validator = new Validator("12345678901");
-            Assert.IsNotNull(validator);
-        }
-
         [TestMethod]
         public void ReturnSnilsTest()
         {
             long expected = 12345678901;
-            Assert.AreEqual(expected, validator.ConvertSnils());
+            Assert.AreEqual(expected, Validator.ConvertSnils("12345678901"));
         }
 
         [TestMethod]
         public void ValidateChecksumBelowMinTest()
         {
-            Validator validatorTest = new Validator("00000000001");
-            bool actual = validatorTest.ValidateChecksum();
-            Assert.AreEqual(false, actual);
+            bool actual = Validator.ValidateChecksum("00000000001");
+            Assert.AreEqual(true, actual);
         }
+
         [TestMethod]
         public void ValidateChecksumSumLess100Test()
         {
-            Validator validatorTest = new Validator("00100199864");
-            bool actual = validatorTest.ValidateChecksum();
+            bool actual = Validator.ValidateChecksum("00100199864");
             Assert.AreEqual(true, actual);
         }
+
         [TestMethod]
         public void ValidateChecksumSumEquals100Test()
         {
-            Validator validatorTest = new Validator("12346000000");
-            bool actual = validatorTest.ValidateChecksum();
+            bool actual = Validator.ValidateChecksum("12346000000");
             Assert.AreEqual(true, actual);
         }
+
         [TestMethod]
         public void ValidateChecksumSumMore100Test()
         {
-            Validator validatorTest = new Validator("12345678964");
-            bool actual = validatorTest.ValidateChecksum();
+            bool actual = Validator.ValidateChecksum("12345678964");
             Assert.AreEqual(true, actual);
         }
 
@@ -70,8 +60,7 @@ namespace UnitTest
         [TestMethod]
         public void NumbersInRowTest()
         {
-            Validator validatorTest = new Validator("12346000000");
-            bool actual = validatorTest.NumbersInRow("12346000000");
+            bool actual = Validator.NumbersInRow("12346000000");
             Assert.AreEqual(false, actual);
         }
 
@@ -79,8 +68,8 @@ namespace UnitTest
         public void ValidateTest()
         {
             string expected = "СНИЛС прошел проверку";
-            bool actual = Validator.Validate();
-            Assert.AreEqual(false, actual);
+            string actual = Validator.Validate("12345678964");
+            Assert.AreEqual(expected, actual);
         }
     }
 }

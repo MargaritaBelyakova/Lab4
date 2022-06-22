@@ -6,27 +6,29 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    public class Validator
-    {
-        private readonly int[] snils = new int[11];
-
-        public Validator(string snils)
+    static public class Validator
+    {        
+        public static long ConvertSnils(string snils)
         {
-            this.snils = snils.Select(x => x - '0').ToArray();
-            
-        }
-        public long ConvertSnils()
-        {
+            int[] _snils = snils.Select(x => x - '0').ToArray();
             long result = 0;
-            for (int i = 0; i < snils.Length; i++)
+            for (int i = 0; i < _snils.Length; i++)
             {
                 result *= 10;
-                result += snils[i];
+                result += _snils[i];
             }
             return result;
         }
-        public static string Validate()
+        public static string Validate(string snils)
         {
+            if (!ValidateNumbersCount(snils))
+                return "Количество символов не соответсвует";
+            if (!ValidateDigits(snils))
+                return "СНИЛС может содердать только цифры";
+            if (!NumbersInRow(snils))
+                return "В СНИЛСЕ не может содержаться цифра три раза подряд";
+            if (!ValidateChecksum(snils))
+                return "Контрольная сумма не прошла проверку";
             return "СНИЛС прошел проверку";
         }
 
@@ -49,7 +51,7 @@ namespace Lab4
             return true;
         }
 
-        public bool NumbersInRow(string snils)
+        public static bool NumbersInRow(string snils)
         {
             for (int i = 0; i < snils.Length - 2; i++)
                 if (snils[i] == snils[i + 1] && snils[i] == snils[i + 2])
@@ -57,18 +59,18 @@ namespace Lab4
             return true;
         }
 
-        public bool ValidateChecksum()
+        public static bool ValidateChecksum(string snils)
         {            
-            if (ConvertSnils() > 00100199800)
+            if (ConvertSnils(snils) > 00100199800)
             {
-                long checksum = ConvertSnils()%100;
+                long checksum = ConvertSnils(snils)%100;
                 if (checksum < 0)
                     checksum = 0;
                 int calculatedChecksum = 0;
                 int numbers = snils.Length - 2;
                 for (int i = 0; i < numbers; i++)
                 {
-                    calculatedChecksum += snils[i] * (numbers - i);
+                    calculatedChecksum += Convert.ToInt32(snils[i] - '0') * (numbers - i);
                 }
                 if (calculatedChecksum < 100 && calculatedChecksum == checksum)
                 {
