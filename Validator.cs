@@ -47,6 +47,11 @@ namespace Lab4
             return true;
         }
 
+        public bool NumbersInRow()
+        {
+            return true;
+        }
+
         public bool ValidateChecksum()
         {            
             if (ConvertSnils() > 00100199800)

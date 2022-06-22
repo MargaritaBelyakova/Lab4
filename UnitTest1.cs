@@ -66,5 +66,12 @@ namespace UnitTest
             bool actual = Validator.ValidateDigits("1b234a78c64");
             Assert.AreEqual(false, actual);
         }
+        [TestMethod]
+        public void NumbersInRowTest()
+        {
+            Validator validatorTest = new Validator("12346000000");
+            bool actual = validatorTest.NumbersInRow();
+            Assert.AreEqual(true, actual);
+        }
     }
 }
