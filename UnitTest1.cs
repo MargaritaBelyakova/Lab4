@@ -13,7 +13,7 @@ namespace UnitTest
         [TestInitialize]
         public void ValidatorCreateTest()
         {
-            validator = new Validator(12345678901);
+            validator = new Validator("12345678901");
             Assert.IsNotNull(validator);
         }
 
@@ -21,13 +21,19 @@ namespace UnitTest
         public void ReturnSnilsTest()
         {
             long expected = 12345678901;
-            Assert.AreEqual(expected, validator.Snils);
+            Assert.AreEqual(expected, validator.ConvertSnils());
         }
 
         [TestMethod]
-        public void ValidateChecksumTest()
+        public void ValidateChecksumBelowMinTest()
         {
-            Validator validatorTest = new Validator(00000000001);
+            Validator validatorTest = new Validator("00000000001");
+            bool actual = validatorTest.ValidateChecksum();
+            Assert.AreEqual(false, actual);
+        }
+        public void ValidateChecksumSumLess100Test()
+        {
+            Validator validatorTest = new Validator("123");
             bool actual = validatorTest.ValidateChecksum();
             Assert.AreEqual(false, actual);
         }
