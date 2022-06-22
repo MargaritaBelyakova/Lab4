@@ -9,7 +9,6 @@ namespace Lab4
     public class Validator
     {
         private readonly int[] snils = new int[11];
-        public int[] Snils { get { return snils; } }
 
         public Validator(string snils)
         {
@@ -25,6 +24,11 @@ namespace Lab4
                 result += snils[i];
             }
             return result;
+        }
+
+        public static bool ValidateNumbersCount(string snils)
+        {
+            return true;
         }
 
         public bool ValidateChecksum()

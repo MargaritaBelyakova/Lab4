@@ -52,5 +52,12 @@ namespace UnitTest
             bool actual = validatorTest.ValidateChecksum();
             Assert.AreEqual(true, actual);
         }
+
+        [TestMethod]
+        public void ValidateNumbersCountTest()
+        {
+            bool actual = Validator.ValidateNumbersCount("123");
+            Assert.AreEqual(true, actual);
+        }
     }
 }
