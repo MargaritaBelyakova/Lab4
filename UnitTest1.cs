@@ -74,5 +74,13 @@ namespace UnitTest
             bool actual = validatorTest.NumbersInRow("12346000000");
             Assert.AreEqual(false, actual);
         }
+
+        [TestMethod]
+        public void ValidateTest()
+        {
+            string expected = "СНИЛС прошел проверку";
+            bool actual = Validator.Validate();
+            Assert.AreEqual(false, actual);
+        }
     }
 }

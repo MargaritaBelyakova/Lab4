@@ -25,6 +25,10 @@ namespace Lab4
             }
             return result;
         }
+        public static string Validate()
+        {
+            return "СНИЛС прошел проверку";
+        }
 
         public static bool ValidateNumbersCount(string snils)
         {
