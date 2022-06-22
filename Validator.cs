@@ -39,7 +39,12 @@ namespace Lab4
 
         public static bool ValidateDigits(string snils)
         {
-
+            for (int i = 0; i < snils.Length; i++)
+            {
+                if (!char.IsDigit(snils[i]))
+                    return false;
+            }
+            return true;
         }
 
         public bool ValidateChecksum()

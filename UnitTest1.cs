@@ -64,7 +64,7 @@ namespace UnitTest
         public void ValidateDigitsTest()
         {
             bool actual = Validator.ValidateDigits("1b234a78c64");
-            Assert.AreEqual(true, actual);
+            Assert.AreEqual(false, actual);
         }
     }
 }
