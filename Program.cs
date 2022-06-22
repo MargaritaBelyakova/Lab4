@@ -10,6 +10,13 @@ namespace Lab4
     {
         static void Main(string[] args)
         {
+            while (true)
+            {
+                Console.WriteLine("Напишите номер СНИЛС");
+                var snils = Console.ReadLine();
+                Console.WriteLine(Validator.Validate(snils));
+            }
+
         }
     }
 }
